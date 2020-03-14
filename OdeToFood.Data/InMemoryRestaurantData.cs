@@ -21,6 +21,11 @@ namespace OdeToFood.Data
             return restaurants.OrderBy(r => r.Name).Select(r => r);
         }
 
+        public Restaurant GetRestaurantById(int id)
+        {
+            return restaurants.SingleOrDefault(r => r.Id == id);
+        }
+
         public IEnumerable<Restaurant> GetRestaurantsByName(string name)
         {
             if (string.IsNullOrEmpty(name))
