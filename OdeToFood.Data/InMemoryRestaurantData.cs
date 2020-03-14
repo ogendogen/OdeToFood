@@ -16,6 +16,7 @@ namespace OdeToFood.Data
                 new Restaurant() { Id = 3, Name = "Papa Diego", Location = "Katowice", Cuisine = CuisineType.Mexican}
             };
         }
+
         public IEnumerable<Restaurant> GetAll()
         {
             return restaurants.OrderBy(r => r.Name).Select(r => r);
@@ -36,6 +37,23 @@ namespace OdeToFood.Data
             return restaurants.OrderBy(r => r.Name)
                 .Where(r => r.Name.StartsWith(name))
                 .Select(r => r);
+        }
+
+        public Restaurant Update(Restaurant updatedRestaurant)
+        {
+            var restaurant = restaurants.SingleOrDefault(r => r.Id == updatedRestaurant.Id);
+            if (restaurant != null)
+            {
+                restaurant.Name = updatedRestaurant.Name;
+                restaurant.Location = updatedRestaurant.Location;
+                restaurant.Cuisine = updatedRestaurant.Cuisine;
+            }
+            return restaurant;
+        }
+
+        public int Commit()
+        {
+            return 0;
         }
     }
 }
