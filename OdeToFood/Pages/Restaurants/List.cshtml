@@ -31,7 +31,14 @@
                    asp-route-restaurantId="@restaurant.Id">
                     <i class="fa fa-list"></i>
                 </a>
+                <a class="btn btn-outline-dark"
+                   asp-page="./Edit"
+                   asp-route-restaurantId="@restaurant.Id">
+                    <i class="fa fa-edit"></i>
+                </a>
             </td>
         </tr>
     }
 </table>
+
+<a asp-page="./Edit" class="btn btn-primary">Add New</a>
