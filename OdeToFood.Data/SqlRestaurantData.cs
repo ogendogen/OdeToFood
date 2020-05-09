@@ -39,6 +39,11 @@ namespace OdeToFood.Data
             throw new System.NotImplementedException();
         }
 
+        public int GetCountOfRestaurants()
+        {
+            return db.Restaurants.Count();
+        }
+
         public Restaurant GetRestaurantById(int id)
         {
             return db.Restaurants.Find(id);
