@@ -1,5 +1,6 @@
 ﻿@page
 @model OdeToFood.Pages.Restaurants.ClientRestaurantsModel
+@using Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "ClientRestaurants";
 }
@@ -9,13 +10,20 @@
 @section Scripts{
     <script>
 
+        //<environment include="Development">
+        //</environment>
+
+
         $(function () {
-            $.ajax("/api/restaurants/",
-                { method: "get" })
-                .then(function (response) {
-                    console.dir(response);
-                })
+                $.ajax("/api/restaurants/",
+                    { method: "get" })
+                    .then(function (response) {
+                        console.dir(response);
+                    })
         });
+
+        <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
+            <script type="text/javascript" src="DataTables/datatables.min.js" />
 
     </script>
 }
