@@ -8,22 +8,25 @@
 <h2>ClientRestaurants</h2>
 
 @section Scripts{
-    <script>
-
-        //<environment include="Development">
-        //</environment>
 
 
-        $(function () {
-                $.ajax("/api/restaurants/",
-                    { method: "get" })
-                    .then(function (response) {
-                        console.dir(response);
-                    })
-        });
+    <environment include="Development">
+        <script src="~\node_modules\datatables.net\js\jquery.dataTables.js"></script>
+        <script src="~\node_modules\datatables.net-dt\js\dataTables.dataTables.js"></script>
+        <link href="~\node_modules\datatables.net-dt\css\jquery.dataTables.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.js"></script>
+    </environment>
 
-        <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
-            <script type="text/javascript" src="DataTables/datatables.min.js" />
-
-    </script>
+      <script>
+          $(function () {
+              $.ajax("/api/restaurants/",
+                  { method: "get" })
+                  .then(function (response) {
+                      console.dir(response);
+                  })
+          });
+      </script>
 }
