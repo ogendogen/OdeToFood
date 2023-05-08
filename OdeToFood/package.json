@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/ogendogen/OdeToFood#readme",
   "dependencies": {
-    "datatables.net-dt": "^1.10.20"
+    "datatables.net-dt": "^1.13.4"
   }
 }
